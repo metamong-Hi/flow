@@ -30,6 +30,9 @@
         <activity android:name=".PhoneActivity"
             android:exported="true">
         </activity>
+        <activity android:name=".CallActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

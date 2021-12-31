@@ -11,9 +11,7 @@
     android:background="@drawable/hi"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.myapplication.PhoneActivity"
-    tools:showIn="@layout/phonebook" >
-
+    tools:context="com.example.myapplication.PhoneActivity">
 
     <!-- 첫 번째 페이지. content1 -->
     <LinearLayout

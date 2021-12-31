@@ -99,7 +99,7 @@ public class PhoneActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(PhoneActivity.this, PhoneActivity.class);
+                Intent intent = new Intent(PhoneActivity.this, CallActivity.class);
                 intent.putExtra("POSITION", position);
                 startActivity(intent);
             }
