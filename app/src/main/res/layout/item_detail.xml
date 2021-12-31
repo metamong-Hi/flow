@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/hi"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="100dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="3dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:layout_weight="1"
+                android:paddingBottom="100dp"
+                android:src="@drawable/call2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_weight="0.8">
+
+            <TextView
+
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_weight="1"
+                android:paddingTop="30dp"
+                android:text="Large Text"
+                android:textColor="@color/white"
+                android:textSize="16pt" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="0.5">
+            android:paddingTop="30dp"
+
+            <TextView
+                android:id="@+id/txtContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="Small Text"
+                android:textColor="@color/white"
+                android:textSize="12pt" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/close"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/ok" />
+
+            <ImageButton
+                android:id="@+id/call"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/call"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
