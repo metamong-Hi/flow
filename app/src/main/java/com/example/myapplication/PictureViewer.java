@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -24,12 +25,12 @@ public class PictureViewer extends LinearLayout {
 
     public void init(Context context){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.picture,this,true);
+        inflater.inflate(R.layout.item_photo,this,true);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.photo_item);
     }
 
-    public void setItem(PictureItem pictureItem){
-        imageView.setImageResource(pictureItem.getImage());
+    public void setItem(Uri pictureItem){
+        imageView.setImageURI(pictureItem);
     }
 }
