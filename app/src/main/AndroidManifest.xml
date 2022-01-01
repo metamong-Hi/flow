@@ -34,27 +34,37 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".galleryActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".StopWatchActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".PhoneActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CallActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".arActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".galleryActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".StopWatchActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".PhoneActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".CallActivity"
-            android:exported="true"></activity>
     </application>
 
 </manifest>
