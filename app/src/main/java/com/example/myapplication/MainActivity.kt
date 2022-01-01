@@ -21,5 +21,11 @@ class MainActivity : AppCompatActivity() {
                 hello2.setOnClickListener { // 버튼 클릭시 할 행동
                         startActivity(secondIntent)  // 화면 전환하기
                 }
+                val thirdIntent = Intent(this, StopWatchActivity::class.java) // 인텐트를 생성
+
+                hello3.setOnClickListener { // 버튼 클릭시 할 행동
+                        startActivity(thirdIntent)  // 화면 전환하기
+                }
         }
 }
+//

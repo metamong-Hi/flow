@@ -28,3 +28,4 @@ public class Call {
 
     public int getDiffImg() {return diffImg;}
 }
+

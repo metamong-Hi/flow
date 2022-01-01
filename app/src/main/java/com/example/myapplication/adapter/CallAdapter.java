@@ -1,5 +1,7 @@
 package com.example.myapplication.adapter;
+
 import android.content.Context;
+import com.example.myapplication.data.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.data.Call;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CallAdapter extends BaseAdapter {
 

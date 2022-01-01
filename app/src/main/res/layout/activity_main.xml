@@ -4,31 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hi"
+    android:background="@drawable/backimage"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:paddingTop="0dp"
+        android:layout_gravity="left|bottom
+"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="20dp">
         <ImageButton
             android:id="@+id/hello1"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/ok" />
+            android:background="@drawable/group2" />
 
         <ImageButton
             android:id="@+id/hello2"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/call"/>
+            android:background="@drawable/group3" />
+        <ImageButton
+            android:id="@+id/hello3"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/group3" />
     </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

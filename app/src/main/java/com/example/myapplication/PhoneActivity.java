@@ -1,11 +1,13 @@
 package com.example.myapplication;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ClipData;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import com.example.myapplication.adapter.CallAdapter;
+import com.example.myapplication.data.Call;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,7 +25,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.adapter.CallAdapter;
-import com.example.myapplication.data.Call;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -195,26 +196,24 @@ public class PhoneActivity extends AppCompatActivity {
             pd = ProgressDialog.show(PhoneActivity.this, "Loading Contacts",
                     "Please Wait");
         }
-
-        @SuppressLint("Range")
         @Override
         protected ArrayList<Call> doInBackground(Void... params) {
             // TODO Auto-generated method stubco
             ArrayList<Map<String, String>> contacts = new ArrayList<Map<String, String>>();
 
             callList = new ArrayList<Call>();
-
-            Cursor c = getContentResolver().query(
+            ContentResolver cu=getContentResolver();
+            Cursor c = cu.query(
                     ContactsContract.Contacts.CONTENT_URI, null,
                     null, null, ContactsContract.Contacts.DISPLAY_NAME_PRIMARY+" asc");
 
             int caseNum = 0;
             while (c.moveToNext()) {
                 //연락처 id값
-                String id = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+                String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
 
                 //연락처 대표이름
-                String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY));
+                String name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY));
 
                 //id로 전화 정보 조회
                 Cursor phoneCursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
@@ -222,7 +221,7 @@ public class PhoneActivity extends AppCompatActivity {
                 String number="";
                 //데이터가 있는 경우
                 if(phoneCursor.moveToFirst()){
-                    number = phoneCursor.getString(phoneCursor.getColumnIndex(
+                    number = phoneCursor.getString(phoneCursor.getColumnIndexOrThrow(
                             ContactsContract.CommonDataKinds.Phone.NUMBER));
                 }
 
