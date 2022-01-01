@@ -90,29 +90,29 @@
                             android:visibility="gone"
                             tools:ignore="MissingConstraints" />
 
-                        <FrameLayout
-                            android:id="@+id/frameLayoutPreview"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:visibility="gone"
-                            tools:ignore="MissingConstraints">
 
-                            <ImageView
-                                android:id="@+id/imageViewPreview"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#1E1E1E" />
-
-                            <ImageView
-                                android:id="@+id/closePic"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="right | bottom"
-                                android:layout_margin="10dp"
-                                android:src="@drawable/back" />
-                        </FrameLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
+                    <FrameLayout
+                        android:id="@+id/frameLayoutPreview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone"
+                        tools:ignore="MissingConstraints">
 
+                        <ImageView
+                            android:id="@+id/imageViewPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#1E1E1E" />
+
+                        <ImageView
+                            android:id="@+id/closePic"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="right | bottom"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/back" />
+                    </FrameLayout>
                 </FrameLayout>
             </LinearLayout>
         </TabHost>

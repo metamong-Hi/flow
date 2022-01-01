@@ -1,17 +1,20 @@
 package com.example.myapplication;
+
+import android.net.Uri;
+
 public class PictureItem {
 
-    private int image;
+    private Uri image;
 
-    public PictureItem(int image) {
+    public PictureItem(Uri image) {
         this.image = image;
     }
 
-    public int getImage() {
+    public Uri getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
 }

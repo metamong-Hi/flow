@@ -50,7 +50,6 @@ class galleryActivity : AppCompatActivity() {
 
     private var savedUri: Uri? = null
 
-
     lateinit var previewView : androidx.camera.view.PreviewView
     lateinit var imageViewPhoto : ImageView
     lateinit var imageViewPreview : ImageView
@@ -80,20 +79,26 @@ class galleryActivity : AppCompatActivity() {
         //최초 선택 탭 지정
         tabHost.currentTab = 1
 
+        //뷰,권한 및 리스너 설정
         findView()
         permissionCheck()
         setListener()
         setCameraAnimationListener()
 
+        //카메라 실행 객체
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         //gridview 관련
         pictureAdapter = PictureAdapter()
+        getAllShownImagesPath()
         gridView.setAdapter(pictureAdapter);
         gridView.setOnItemClickListener(OnItemClickListener { adapterView, view, i, l ->
             //각 사진 클릭 이벤트
             Log.d(TAG,i.toString())
+            savedUri = pictureAdapter.getItem(i).image
+            showCaptureImage()
         })
+        gridView.invalidateViews()
     }
 
     //뷰 등록
@@ -106,7 +111,7 @@ class galleryActivity : AppCompatActivity() {
         gridView = findViewById(R.id.gridView)
     }
 
-    //퍼미션 관련 코
+    //퍼미션 관련 코드
     private fun permissionCheck() {
 
         var permissionList =
@@ -129,6 +134,32 @@ class galleryActivity : AppCompatActivity() {
             openCamera()
         } else {
             onBackPressed()
+        }
+    }
+
+    //갤러리의 모든 image path -> uri 반환하는 부분
+    private fun getAllShownImagesPath() {
+        val uriExternal: Uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        var columnIndexID: Int
+        var imageId: Long
+        val cursor = contentResolver.query(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            null,
+            null,
+            null,
+            MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC"
+        )
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                // 사진 경로 Uri 가져오기
+                columnIndexID = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
+                while (cursor.moveToNext()) {
+                    imageId = cursor.getLong(columnIndexID)
+                    val uriImage = Uri.withAppendedPath(uriExternal, "" + imageId)
+                    pictureAdapter.addItem(PictureItem(uriImage))
+                }
+            }
+            cursor.close()
         }
     }
 
@@ -192,7 +223,7 @@ class galleryActivity : AppCompatActivity() {
     //saveFile(갤러리 저장 함수)호출
     private fun CameraCapture() {
         imageCapture = imageCapture ?: return
-        val fileName:String = SimpleDateFormat("yy-mm-dd", Locale.US).format(System.currentTimeMillis()) + ".png"
+        val fileName:String = "CS496_" + System.currentTimeMillis().toString() + ".png"
         //사진 파일 생성
         val photoFile = File(
             cacheDir,
@@ -207,12 +238,15 @@ class galleryActivity : AppCompatActivity() {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     savedUri = Uri.fromFile(photoFile)
                     saveFile()
+                    pictureAdapter.addItem(PictureItem(savedUri))
+                    gridView.invalidateViews()
+                    Log.d(TAG,savedUri.toString())
+                    Log.d(TAG,pictureAdapter.items.size.toString())
                     val animation = AnimationUtils.loadAnimation(this@galleryActivity, R.anim.camera_shutter)
                     animation.setAnimationListener(cameraAnimationListener)
                     frameLayoutShutter.animation = animation
                     frameLayoutShutter.visibility = View.VISIBLE
                     frameLayoutShutter.startAnimation(animation)
-
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -303,6 +337,7 @@ class galleryActivity : AppCompatActivity() {
         }
 
         fun addItem(pictureItem: PictureItem) {
+            Log.d(TAG,pictureItem.toString()+"--------------");
             items.add(pictureItem)
         }
 
@@ -316,7 +351,7 @@ class galleryActivity : AppCompatActivity() {
 
         override fun getView(i: Int, view: View?, viewGroup: ViewGroup?): View {
             val pictureViewer = PictureViewer(getApplicationContext())
-            pictureViewer.setItem(items[i])
+            pictureViewer.setItem(items[i].image)
             return pictureViewer
         }
     }
