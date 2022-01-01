@@ -203,6 +203,11 @@ class galleryActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.closePic).setOnClickListener {
             closePicture()
         }
+
+        findViewById<ImageButton>(R.id.btn_back1).setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     //애니메이션 리스너 등록(셔터애니메이션 필요 함수)
@@ -318,13 +323,13 @@ class galleryActivity : AppCompatActivity() {
         imageViewPreview.setImageURI(null)
         frameLayoutPreview.visibility = View.GONE
     }
-    override fun onBackPressed() {
-        if (showCaptureImage()) {
-            hideCaptureImage()
-        } else {
-            onBackPressed()
-        }
-    }
+//    override fun onBackPressed() {
+//        if (showCaptureImage()) {
+//            hideCaptureImage()
+//        } else {
+//            onBackPressed()
+//        }
+//    }
     private fun closePicture() {
         hideCaptureImage()
     }

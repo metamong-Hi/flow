@@ -1,20 +1,27 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class StopWatchActivity extends Activity {
     TextView myOutput;
     TextView myRec;
     Button myBtnStart;
     Button myBtnRec;
+    ListView listview;
+
+    TimeAdapter adapter;
 
     final static int Init =0;
     final static int Run =1;
@@ -31,13 +38,13 @@ public class StopWatchActivity extends Activity {
         setContentView(R.layout.activity_stop_watch);
 
         myOutput = (TextView) findViewById(R.id.time_out);
-        myRec = (TextView) findViewById(R.id.record);
         myBtnStart = (Button) findViewById(R.id.btn_start);
         myBtnRec = (Button) findViewById(R.id.btn_rec);
 
+        adapter = new TimeAdapter() ;
 
-
-
+        listview = (ListView) findViewById(R.id.grid) ;
+        listview.setAdapter(adapter) ;
     }
 
     @Override
@@ -48,6 +55,9 @@ public class StopWatchActivity extends Activity {
 
     public void myOnClick(View v){
         switch(v.getId()){
+            case R.id.btn_back3:
+                onBackPressed();
+                break;
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
                 switch(cur_Status){
                     case Init:
@@ -82,9 +92,9 @@ public class StopWatchActivity extends Activity {
                 switch(cur_Status){
                     case Run:
 
-                        String str = myRec.getText().toString();
-                        str +=  String.format("%d. %s\n",myCount,getTimeOut());
-                        myRec.setText(str);
+                        String str =  String.format("%d. %s\n",myCount,getTimeOut());
+                        adapter.addItem(new TimeItem(str));
+                        listview.invalidateViews();
                         myCount++; //카운트 증가
 
                         break;
@@ -98,7 +108,8 @@ public class StopWatchActivity extends Activity {
 
                         cur_Status = Init;
                         myCount = 1;
-                        myRec.setText("");
+                        adapter.items.clear();
+                        listview.invalidateViews();
                         myBtnRec.setEnabled(false);
                         break;
 
@@ -118,17 +129,40 @@ public class StopWatchActivity extends Activity {
     };
     //현재시간을 계속 구해서 출력하는 메소드
     String getTimeOut(){
-        long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
+        long now = SystemClock.elapsedRealtime();
         long outTime = now - myBaseTime;
-        //여기서부터 수정 5초 이상이면 색체인지 or lottie 구현
-        //if (outTime>=5000){
-
-        //}
 
         String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
         return easy_outTime;
 
     }
 
+    class TimeAdapter extends BaseAdapter {
+        ArrayList<TimeItem> items = new ArrayList<TimeItem>();
+        @Override
+        public int getCount() {
+            return items.size();
+        }
 
+        public void addItem(TimeItem singerItem){
+            items.add(0,singerItem);
+        }
+
+        @Override
+        public TimeItem getItem(int i) {
+            return items.get(i);
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            timeViewer singerViewer = new timeViewer(getApplicationContext());
+            singerViewer.setItem(items.get(i));
+            return singerViewer;
+        }
+    }
 }

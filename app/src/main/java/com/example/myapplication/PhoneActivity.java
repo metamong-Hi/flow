@@ -6,8 +6,6 @@ import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
-import com.example.myapplication.adapter.CallAdapter;
-import com.example.myapplication.data.Call;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,6 +24,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.adapter.CallAdapter;
+import com.example.myapplication.data.Call;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -61,20 +61,9 @@ public class PhoneActivity extends AppCompatActivity {
                 .setPermissions(Manifest.permission.READ_CONTACTS)
                 .check();
 
-        // 연락처 동기화
-        // ImageButton callBtn = (ImageButton) findViewById(R.id.callBtn);
-        //callBtn.setOnClickListener(new View.OnClickListener() {
-        //@Override
-        //public void onClick(View v) {
-        // TODO Auto-generated method stub
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
-        //callBtn.setVisibility(View.GONE);
         callText.setVisibility(View.VISIBLE);
-        //}
-        //});
-
-        // call search
         callText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -105,9 +94,14 @@ public class PhoneActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
+        ImageButton btn = findViewById(R.id.btn_back2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                onBackPressed();
+            }
+        });
     }
 
     public void search(String charText) {
@@ -148,12 +142,6 @@ public class PhoneActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "권한이 거부됨",Toast.LENGTH_SHORT).show();
         }
     };
-
-
-
-
-
-
 
     // make ImageView
     void makeImg(Uri uri) {
