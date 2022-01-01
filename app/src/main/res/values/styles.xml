@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- 다이얼로그 타이틀 없애기 -->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

@@ -4,31 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backimage"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.MyApplication.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <LinearLayout
+        android:layout_gravity="left|bottom
+"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="20dp">
+        <ImageButton
+            android:id="@+id/hello1"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/group2" />
+
+        <ImageButton
+            android:id="@+id/hello2"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/group3" />
+        <ImageButton
+            android:id="@+id/hello3"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/group3" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

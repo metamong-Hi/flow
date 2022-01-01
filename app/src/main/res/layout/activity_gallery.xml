@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hi"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="Gallery"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        <ImageButton
+            android:id="@+id/btn_back1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TabHost
+            android:id="@+id/tabHost1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--    탭 위젯               -->
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!--    탭별 컨텐츠            -->
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <!--    앨범 탭 컨텐츠            -->
+                    <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        tools:ignore="DuplicateIds">
+                        <GridView
+                            android:id="@+id/gridView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:numColumns="3" />
+                    </LinearLayout>
+
+                    <!--    촬영 탭 컨텐츠            -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        tools:context=".camera.CameraActivity">
+
+                        <androidx.camera.view.PreviewView
+                            android:id="@+id/viewFinder"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/imageViewPhoto"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginBottom="40dp"
+                            android:src="@drawable/shot"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                        <!--        카메라 셔터 액션            -->
+                        <FrameLayout
+                            android:id="@+id/frameLayoutShutter"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="#000000"
+                            android:visibility="gone"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <FrameLayout
+                        android:id="@+id/frameLayoutPreview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone"
+                        tools:ignore="MissingConstraints">
+
+                        <ImageView
+                            android:id="@+id/imageViewPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#1E1E1E" />
+
+                        <ImageView
+                            android:id="@+id/closePic"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="right | bottom"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/back" />
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+</LinearLayout>

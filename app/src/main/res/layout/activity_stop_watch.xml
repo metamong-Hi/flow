@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".StopWatchActivity"
+    android:background="@drawable/hi"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        <ImageButton
+            android:id="@+id/btn_back3"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:onClick="myOnClick"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_out"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:background="#2962FF"
+        android:text="00:00:00"
+        android:layout_weight="3"/>
+
+    <ListView
+        android:id="@+id/grid"
+        android:layout_width="fill_parent"
+        android:layout_height="500dp"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#2962FF"
+            android:onClick="myOnClick"
+            android:text="시작"
+            />
+        <Button
+            android:id="@+id/btn_rec"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ff7f00"
+            android:textColor="#ffffff"
+            android:onClick="myOnClick"
+            android:text="기록"
+            android:enabled="false"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>
