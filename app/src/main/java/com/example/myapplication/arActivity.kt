@@ -5,13 +5,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Bundle
 import android.util.Log
 import android.util.Size
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -84,32 +84,8 @@ class arActivity : AppCompatActivity() {
         setContentView(R.layout.activity_ar)
         container = findViewById(R.id.camera_container)
 
-        // Listener for button used to capture photo
-        camera_capture_button.setOnClickListener {
-
-            // Disable all camera controls
-            it.isEnabled = false
-
-            if (pauseAnalysis) {
-                // If image analysis is in paused state, resume it
-                pauseAnalysis = false
-                image_predicted.visibility = View.GONE
-
-            } else {
-                // Otherwise, pause image analysis and freeze image
-                pauseAnalysis = true
-                val matrix = Matrix().apply {
-                    postRotate(imageRotationDegrees.toFloat())
-                    if (isFrontFacing) postScale(-1f, 1f)
-                }
-                val uprightImage = Bitmap.createBitmap(
-                    bitmapBuffer, 0, 0, bitmapBuffer.width, bitmapBuffer.height, matrix, true)
-                image_predicted.setImageBitmap(uprightImage)
-                image_predicted.visibility = View.VISIBLE
-            }
-
-            // Re-enable camera controls
-            it.isEnabled = true
+        findViewById<ImageButton>(R.id.btn_back5).setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -160,7 +136,6 @@ class arActivity : AppCompatActivity() {
 
                 // Process the image in Tensorflow
                 val tfImage =  tfImageProcessor.process(tfImageBuffer.apply { load(bitmapBuffer) })
-
                 // Perform the object detection for the current frame
                 val predictions = detector.predict(tfImage)
 
@@ -221,10 +196,6 @@ class arActivity : AppCompatActivity() {
         text_prediction.visibility = View.VISIBLE
     }
 
-    /**
-     * Helper function used to map the coordinates for objects coming out of
-     * the model into the coordinates that the user sees on the screen.
-     */
     private fun mapOutputCoordinates(location: RectF): RectF {
 
         // Step 1: map location to the preview coordinates
@@ -298,7 +269,6 @@ class arActivity : AppCompatActivity() {
         }
     }
 
-    /** Convenience method used to check if all permissions required by this app are granted */
     private fun hasPermissions(context: Context) = permissions.all {
         ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
     }

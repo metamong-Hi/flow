@@ -58,7 +58,6 @@
         <activity
             android:name=".arActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -341,13 +341,6 @@ class galleryActivity : AppCompatActivity() {
         frameLayoutPreview.visibility = View.GONE
     }
 
-    override fun onBackPressed() {
-        if (showCaptureImage()) {
-            hideCaptureImage()
-        } else {
-            onBackPressed()
-        }
-    }
     private fun closePicture() {
         hideCaptureImage()
     }
