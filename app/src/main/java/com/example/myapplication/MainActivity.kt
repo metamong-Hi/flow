@@ -1,12 +1,8 @@
 package com.example.myapplication;
-import android.app.ActionBar
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +28,16 @@ class MainActivity : AppCompatActivity() {
         hello3.setOnClickListener { // 버튼 클릭시 할 행동
             Log.d("MainActivity", "3번")
             startActivity(thirdIntent)  // 화면 전환하기
+        }
+        val fourIntent = Intent(this, arActivity::class.java) // 인텐트를 생성
+        hello4.setOnClickListener { // 버튼 클릭시 할 행동
+            Log.d("MainActivity", "4번")
+            startActivity(fourIntent)  // 화면 전환하기
+        }
+        val hiIntent = Intent(this,  AugmentedFacesActivity::class.java) // 인텐트를 생성
+        hello5.setOnClickListener { // 버튼 클릭시 할 행동
+            Log.d("MainActivity", "5번")
+            startActivity(hiIntent)  // 화면 전환하기
         }
     }
 }
