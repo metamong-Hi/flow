@@ -23,8 +23,7 @@
             android:textSize="50sp"
             android:fontFamily="@font/yanolja"
             android:background="#486ad8"
-            android:scaleType="centerCrop"
-            android:src="@drawable/banner" />
+            android:scaleType="centerCrop" />
 
         <ImageButton
             android:id="@+id/btn_back1"

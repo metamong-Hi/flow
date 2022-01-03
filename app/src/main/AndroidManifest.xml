@@ -25,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning"
-        android:screenOrientation="p>
+        android:screenOrientation="portrait">
 
         <provider
             android:name="androidx.core.content.FileProvider"
