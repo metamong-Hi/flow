@@ -8,51 +8,70 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:layout_width="359dp"
+        android:layout_height="676dp"
         android:layout_gravity="left|bottom
 "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_margintop="70dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:paddingTop="0dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="20dp">
-        <ImageButton
-            android:id="@+id/hello1"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/group2" />
+        android:paddingTop="0dp">
 
-        <ImageButton
+        <Button
+            android:id="@+id/hello1"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/group1"
+            android:fontFamily="@font/yanolja"
+            android:text="Gallery"
+            android:textSize="45sp" />
+
+        <Button
             android:id="@+id/hello2"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/group3" />
-        <ImageButton
+            android:background="@drawable/group1"
+            android:fontFamily="@font/yanolja"
+            android:text="PhoneBook"
+            android:textSize="45sp" />
+
+        <Button
             android:id="@+id/hello3"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/group3" />
-        <ImageButton
+            android:background="@drawable/group1"
+            android:fontFamily="@font/yanolja"
+            android:text="StopWatch"
+            android:textSize="45sp" />
+
+        <Button
             android:id="@+id/hello4"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/group3" />
-        <ImageButton
+            android:background="@drawable/group1"
+            android:fontFamily="@font/yanolja"
+            android:text="object recognition"
+            android:textSize="45sp" />
+
+        <Button
             android:id="@+id/hello5"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/group3" />
+            android:background="@drawable/group1"
+            android:fontFamily="@font/yanolja"
+            android:text="metamong"
+            android:textSize="45sp" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
