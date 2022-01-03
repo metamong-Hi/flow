@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:screenOrientation="p>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -47,7 +48,6 @@
         <activity
             android:name=".AugmentedFacesActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true">
         </activity>
         <activity

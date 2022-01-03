@@ -37,6 +37,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
+                android:fontFamily="@font/yanolja"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
 
@@ -45,9 +46,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone Number"
+                android:fontFamily="@font/yanolja"
                 android:textColor="@color/white"
                 android:textSize="14sp"/>
-            <!--android:textColor="#ffffffff"-->
         </LinearLayout>
 
     </LinearLayout>

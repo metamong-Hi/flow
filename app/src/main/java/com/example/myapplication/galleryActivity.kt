@@ -80,7 +80,7 @@ class galleryActivity : AppCompatActivity() {
         tabHost.addTab(tab1)    // TabHost에 탭 추가
 
         val tab2 = tabHost.newTabSpec("Tab 2")
-        tab2.setIndicator("쵤영")
+        tab2.setIndicator("촬영")
         tab2.setContent(R.id.tab2)
         tabHost.addTab(tab2)
 

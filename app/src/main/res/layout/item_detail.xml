@@ -39,6 +39,7 @@
                 android:layout_height="105dp"
                 android:layout_weight="1"
                 android:paddingTop="30dp"
+                android:fontFamily="@font/yanolja"
                 android:text="Large Text"
                 android:textColor="@color/white"
                 android:textSize="16pt" />
@@ -48,19 +49,19 @@
 
             android:layout_width="wrap_content"
             android:layout_height="1dp"
+            android:fontFamily="@font/yanolja"
             android:layout_weight="0.5">
-            android:paddingTop="30dp"
 
             <TextView
                 android:id="@+id/txtContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="Small Text"
                 android:textColor="@color/white"
-                android:textSize="12pt" />
+                android:textSize="12pt"
+                android:fontFamily="@font/yanolja" />
 
         </LinearLayout>
 

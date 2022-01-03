@@ -10,43 +10,54 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
-        <ImageView
+
+        <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="6"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:text = "Stop Watch"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:fontFamily="@font/yanolja"
+            android:background="#486ad8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner" />
+
         <ImageButton
             android:id="@+id/btn_back3"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:onClick="myOnClick"/>
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="0"
+            android:background="#486ad8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/time_out"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="40sp"
+        android:fontFamily="@font/yanolja"
         android:background="#2962FF"
         android:text="00:00:00"
-        android:layout_weight="3"/>
+        android:layout_weight="0"/>
 
     <ListView
         android:id="@+id/grid"
         android:layout_width="fill_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         />
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3">
+        android:layout_height="70dp"
+        android:layout_weight="0">
         <Button
             android:id="@+id/btn_start"
             android:layout_width="0px"
@@ -54,6 +65,8 @@
             android:layout_weight="1"
             android:background="#2962FF"
             android:onClick="myOnClick"
+            android:fontFamily="@font/yanolja"
+            android:textSize="30sp"
             android:text="시작"
             />
         <Button
@@ -63,8 +76,10 @@
             android:layout_weight="1"
             android:background="#ff7f00"
             android:textColor="#ffffff"
+            android:fontFamily="@font/yanolja"
             android:onClick="myOnClick"
             android:text="기록"
+            android:textSize="30sp"
             android:enabled="false"
 
             />

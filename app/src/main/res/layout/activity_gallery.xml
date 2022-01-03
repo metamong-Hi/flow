@@ -6,24 +6,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/hi"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:theme="@style/CustomTheme">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
-        <ImageView
+
+        <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="6"
+            android:layout_weight="1"
             android:gravity="center"
-            android:text="Gallery"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:text = "Gallery"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:fontFamily="@font/yanolja"
+            android:background="#486ad8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner" />
+
         <ImageButton
             android:id="@+id/btn_back1"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="0"
+            android:background="#486ad8"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,17 +43,21 @@
         <TabHost
             android:id="@+id/tabHost1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fontFamily="@font/yanolja">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/yanolja"
                 android:orientation="vertical">
 
                 <!--    탭 위젯               -->
                 <TabWidget
                     android:id="@android:id/tabs"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:fontFamily="@font/yanolja" />
 
                 <!--    탭별 컨텐츠            -->
                 <FrameLayout
@@ -55,6 +69,7 @@
                         android:id="@+id/tab1"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
+                        android:fontFamily="@font/yanolja"
                         tools:ignore="DuplicateIds">
                         <GridView
                             android:id="@+id/gridView"
@@ -72,6 +87,7 @@
                         android:id="@+id/tab2"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
+                        android:fontFamily="@font/yanolja"
                         tools:context=".camera.CameraActivity">
 
                         <androidx.camera.view.PreviewView
