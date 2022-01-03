@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".StopWatchActivity"
-    android:background="@drawable/hi"
+    android:background="@drawable/test"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:gravity="center"
             android:text = "Stop Watch"
             android:textColor="@color/white"
-            android:textSize="50sp"
+            android:textSize="50sp" 
             android:fontFamily="@font/yanolja"
             android:background="#486ad8"
             android:scaleType="centerCrop"/>
@@ -40,9 +40,8 @@
         android:layout_height="70dp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="70sp"
         android:fontFamily="@font/yanolja"
-        android:background="#2962FF"
         android:text="00:00:00"
         android:layout_weight="0"/>
 
@@ -73,7 +72,7 @@
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#ff7f00"
+            android:background="#B3193C"
             android:textColor="#ffffff"
             android:fontFamily="@font/yanolja"
             android:onClick="myOnClick"
