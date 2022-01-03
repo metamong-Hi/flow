@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+
 public class PictureViewer extends LinearLayout {
 
     ImageView imageView;
@@ -31,6 +33,6 @@ public class PictureViewer extends LinearLayout {
     }
 
     public void setItem(Uri pictureItem){
-        imageView.setImageURI(pictureItem);
+        Glide.with(this).load(pictureItem).into(imageView);
     }
 }
