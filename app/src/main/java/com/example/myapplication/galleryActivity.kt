@@ -24,12 +24,20 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import android.widget.AdapterView.OnItemClickListener
 import android.content.ContentValues
+import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.os.Build
 import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
+import androidx.exifinterface.media.ExifInterface
+import com.bumptech.glide.Glide
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.ByteArrayOutputStream
+import java.io.IOException
+
+
+
 
 class galleryActivity : AppCompatActivity() {
 
@@ -242,6 +250,16 @@ class galleryActivity : AppCompatActivity() {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     savedUri = Uri.fromFile(photoFile)
+                    val ei = ExifInterface(cacheDir.toString() + File.separator + fileName)
+                    val rotation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_UNDEFINED)
+                    val angle = when(rotation) {
+                        ExifInterface.ORIENTATION_ROTATE_90->90f
+                        ExifInterface.ORIENTATION_ROTATE_180->180f
+                        ExifInterface.ORIENTATION_ROTATE_270->270f
+                        else ->0f
+                    }
+                    Log.d("카메라 회전각", rotation.toString())
+
                     saveFile()
                     pictureAdapter.addItem(PictureItem(savedUri))
                     gridView.invalidateViews()
@@ -263,6 +281,7 @@ class galleryActivity : AppCompatActivity() {
             })
 
     }
+
 
     // 갤러리(외부저장소)에 저장 -> 임시 내부저장소인 cache에서 외부저장소로 파일 복사
     private fun getBytes(image_uri: Uri?): ByteArray {
@@ -299,8 +318,6 @@ class galleryActivity : AppCompatActivity() {
                     values.put(MediaStore.Images.Media.IS_PENDING, 0)
                     contentResolver.update(item, values, null, null)
                 }
-
-//                galleryAddPic(fileName)
             }
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
@@ -314,7 +331,7 @@ class galleryActivity : AppCompatActivity() {
     private fun showCaptureImage(): Boolean {
         if (frameLayoutPreview.visibility == View.GONE) {
             frameLayoutPreview.visibility = View.VISIBLE
-            imageViewPreview.setImageURI(savedUri)
+            Glide.with(this).load(savedUri).into(imageViewPreview)
             return false
         }
         return true
@@ -323,13 +340,14 @@ class galleryActivity : AppCompatActivity() {
         imageViewPreview.setImageURI(null)
         frameLayoutPreview.visibility = View.GONE
     }
-//    override fun onBackPressed() {
-//        if (showCaptureImage()) {
-//            hideCaptureImage()
-//        } else {
-//            onBackPressed()
-//        }
-//    }
+
+    override fun onBackPressed() {
+        if (showCaptureImage()) {
+            hideCaptureImage()
+        } else {
+            onBackPressed()
+        }
+    }
     private fun closePicture() {
         hideCaptureImage()
     }
@@ -342,7 +360,6 @@ class galleryActivity : AppCompatActivity() {
         }
 
         fun addItem(pictureItem: PictureItem) {
-            Log.d(TAG,pictureItem.toString()+"--------------");
             items.add(pictureItem)
         }
 
