@@ -5,7 +5,7 @@
     android:id="@+id/phonebook"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hi"
+    android:background="@drawable/test"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.myapplication.PhoneActivity">
@@ -13,7 +13,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
-        <ImageView
+        <TextView
+            android:textSize="50dp"
+            android:textColor="@color/white"
+            android:text="Phonebook"
+            android:fontFamily="@font/yanolja"
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -21,11 +25,13 @@
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         <ImageButton
-            android:id="@+id/btn_back2"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:id="@+id/btn_back1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_weight="0"
+            android:background="#3d5ab9"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back"/>
     </LinearLayout>
     <!-- 첫 번째 페이지. content1 -->
     <LinearLayout

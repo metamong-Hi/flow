@@ -196,7 +196,7 @@ public class AugmentedFacesActivity extends AppCompatActivity implements GLSurfa
 
         try {
             backgroundRenderer.createOnGlThread(/*context=*/ this);
-            augmentedFaceRenderer.createOnGlThread(this, "models/flower.png");
+            augmentedFaceRenderer.createOnGlThread(this, "models/metamonghi.png");
             augmentedFaceRenderer.setMaterialProperties(0.0f, 1.0f, 0.1f, 6.0f);
 
             rightEarObject.createOnGlThread(this, "models/forehead_right.obj", "models/flower.png");

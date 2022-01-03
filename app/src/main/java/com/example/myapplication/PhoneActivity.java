@@ -94,7 +94,7 @@ public class PhoneActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ImageButton btn = findViewById(R.id.btn_back2);
+        ImageButton btn = findViewById(R.id.btn_back1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
