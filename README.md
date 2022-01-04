@@ -5,14 +5,14 @@
 1. [Project Description](#Project-Description))
     + [목표](#목표)
     + [목적](#목적)
-    + [사용 언어, 툴](#사용-언어,-툴)
+    + [사용 언어, 툴](#사용-언어-툴)
     + [결과물](#결과물)
 
 
 2. [implementation](#implementation)
     + [Gallery](#Gallery)
-    + [PhoneBook](#StopWatch)
-    + [StopWatch](#Gallery)
+    + [PhoneBook](#PhoneBook)
+    + [StopWatch](#StopWatch)
     + [Object Recognition](#Object-Recognition)
     + [MetaMong](#MetaMong)
 
