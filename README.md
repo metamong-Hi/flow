@@ -2,21 +2,21 @@
 
 ## 목차
 
-[프로젝트 개요](#프로젝트-개요)
++ [프로젝트 개요](#프로젝트-개요)
     + [목표](#목표)
     + [목적](#목적)
     + [사용 언어, 툴](#사용-언어-툴)
     + [결과물](#결과물)
 
 
-[탭별 주요코드 설명](#탭별-주요코드-설명)
++ [탭별 주요코드 설명](#탭별-주요코드-설명)
     + [Gallery](#Gallery)
     + [PhoneBook](#PhoneBook)
     + [StopWatch](#StopWatch)
     + [Object Recognition](#Object-Recognition)
     + [MetaMong](#MetaMong)
 
-[구현 결과](#구현-결과)
++ [구현 결과](#구현-결과)
     + [Gallery](#1-갤러리)
     + [PhoneBook](#2-연락처)
     + [StopWatch](#3-스톱워치)
