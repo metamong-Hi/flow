@@ -379,4 +379,4 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
 
 ### 5. 메타몽
-
+메타몽.gif
