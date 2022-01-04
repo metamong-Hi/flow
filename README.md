@@ -1,13 +1,14 @@
 # 몰입캠프 1주차 과제
+
 ## 목차
 
-1.[프로젝트 개요](#1.-프로젝트-개요)
+1. [Project Description](#Project-Description)
 
-2.[구현 기능 및 주요 코드](#2.-구현-기능-및-주요-코드)
+2. [implementation](#implementation)
 
-3.[구현 결과](#3.-구현-결과)
+3. [Screenshots](#Screenshots)
 
-## 1. 프로젝트 개요
+## Project Description
 
 + 목표
   + 탭 구조를 활용한 안드로이드 앱 제작
@@ -33,11 +34,14 @@
     + _해당 탭은 탭1을 추가 기능 구현중 코드가 복잡해져서 분리함_
 
 ---------------------------
-## 2. 구현 기능 및 주요 코드
+
+## implementation
 
 ### 1. 갤러리
+
 + 앨범
   + 갤러리의 모든 리소스에 대한 uri(Uniform Resource Identifier : 일종으 자원 식별자)를 구해 앨범 그리드뷰 리스트에 추가
+
   ```java
   private fun getAllShownImagesPath() {
         //contentResolver의 데이터타입과 가져오는 주소(갤러리) 정의
@@ -71,8 +75,10 @@
         }
     }
   ```
+
 + 카메라
   + Preview
+
   ```kotlin
   private fun openCamera() {
   
@@ -108,7 +114,9 @@
       }, ContextCompat.getMainExecutor(this))
   }
   ```
+
   + Camera Capture 및 갤러리 저장
+
   ```kotlin
   private fun CameraCapture() {
       이미지 캡쳐
@@ -144,8 +152,10 @@
 
       }
   ```
+
   + 셔터 애니메이션
     + 셔터 애니메이션 리스너
+
     ```kotlin
     private fun setCameraAnimationListener() {
           cameraAnimationListener = object : Animation.AnimationListener {
@@ -162,6 +172,7 @@
     ```
   
     + 셔터 애니메이션 호출 파트 (CameraCapture함수 내부에서 호출)
+
     ```kotlin
     val animation = AnimationUtils.loadAnimation(this@galleryActivity, R.anim.camera_shutter)
     animation.setAnimationListener(cameraAnimationListener)
@@ -171,8 +182,10 @@
     ```
 
 ### 2. 연락처
+
 + 검색
   + 검색창 변경 리스너
+
   ```java
   callText.addTextChangedListener(new TextWatcher() {
       @Override
@@ -189,7 +202,9 @@
       }
   });
   ```
+
   + 검색 함수
+
   ```java
   public void search(String charText) {
 
@@ -218,7 +233,9 @@
       callAdapter.notifyDataSetChanged();
   }
   ```
+
 + 상세 정보창
+
   ```java
   list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
       @Override
@@ -233,7 +250,9 @@
   ```
 
 ### 3. 스톱워치
+
 + 타이머 핸들러
+
 ```java
 Handler myTimer = new Handler(){
     public void handleMessage(Message msg){
@@ -255,7 +274,9 @@ String getTimeOut(){
 ```
 
 ### 4. 사물인식
+
 + 영상분석 리스너
+
 ```kotlin
 imageAnalysis.setAnalyzer(executor, ImageAnalysis.Analyzer { image ->
 
@@ -288,28 +309,67 @@ imageAnalysis.setAnalyzer(executor, ImageAnalysis.Analyzer { image ->
     }
 })
 ```
+
 카메라 프리뷰 부분은 위 코드와 동일
 
 ### 5. 메타몽
-+ ??
 
----------------------------------
-## 3. 구현 결과
++ 영상 인식 후 3D 오브젝트 배치 코드
+
+```java
+//얼굴 랜더링 한 augmented face redering 불러오기
+@Override
+public void onWindowFocusChanged(boolean hasFocus) {
+    super.onWindowFocusChanged(hasFocus);
+    FullScreenHelper.setFullScreenOnWindowFocusChanged(this, hasFocus);
+}
+
+@Override
+//얼굴 표면 인식 및 좌표 감지
+public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+    GLES20.glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+
+    try {
+        //backgroudRenderer = 얼굴 전체 rendering 
+        backgroundRenderer.createOnGlThread(/*context=*/ this);
+        //얼굴을 obj파일로 3D모델을 만들어서 형상화
+        //3D Object(메타몽) 배치
+        augmentedFaceRenderer.createOnGlThread(this, "models/metamonghi.png");
+        augmentedFaceRenderer.setMaterialProperties(0.0f, 1.0f, 0.1f, 6.0f);
+
+        //꽃도 마찬가지로 렌더링
+        rightEarObject.createOnGlThread(this, "models/forehead_right.obj", "models/flower.png");
+        rightEarObject.setMaterialProperties(0.0f, 1.0f, 0.1f, 6.0f);
+        rightEarObject.setBlendMode(ObjectRenderer.BlendMode.AlphaBlending);
+
+
+    } catch (IOException e) {
+        Log.e(TAG, "Failed to read an asset file", e);
+    }
+}
+```
+
+## Screenshots
 
 ### 1. 갤러리
+
 + 앨범
 + 카메라
 
 ### 2. 연락처
+
 + 검색
 + 상세창
 
 ### 3. 스톱워치
+
 + 시작 화면
 + 기록중 화면
 
 ### 4. 사물인식
+
 + ??? 인식
 
 ### 5. 메타몽
+
 + 사진
