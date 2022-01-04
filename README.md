@@ -16,7 +16,7 @@
     + [Object Recognition](#Object-Recognition)
     + [MetaMong](#MetaMong)
 
-3. [Screenshots](#Screenshots)
+3. [구현 결과](#구현-결과)
 
 ## 프로젝트 개요
 
@@ -359,7 +359,7 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 }
 ```
 
-## 구현 
+## 구현 결과
 
 ### 1. 갤러리
 
