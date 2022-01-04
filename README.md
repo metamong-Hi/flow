@@ -2,14 +2,14 @@
 
 ## 목차
 
-1. [Project Description](#Project-Description)
+1. [프로젝트 개요](#프로젝트-개요)
     + [목표](#목표)
     + [목적](#목적)
     + [사용 언어, 툴](#사용-언어-툴)
     + [결과물](#결과물)
 
 
-2. [implementation](#implementation)
+2. [탭별 주요코드 설명](#탭별-주요코드-설명)
     + [Gallery](#Gallery)
     + [PhoneBook](#PhoneBook)
     + [StopWatch](#StopWatch)
@@ -18,7 +18,7 @@
 
 3. [Screenshots](#Screenshots)
 
-## Project Description
+## 프로젝트 개요
 
 ### 목표
   + 탭 구조를 활용한 안드로이드 앱 제작
@@ -45,7 +45,7 @@
 
 ---------------------------
 
-## implementation
+## 탭별 주요코드 설명
 
 ### Gallery
 
@@ -359,7 +359,7 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 }
 ```
 
-## Screenshots
+## 구현 
 
 ### 1. 갤러리
 
