@@ -17,11 +17,11 @@
     + [MetaMong](#MetaMong)
 
 3. [구현 결과](#구현-결과)
-    + [Gallery](#갤러리)
-    + [PhoneBook](#연락처)
-    + [StopWatch](#스톱워치)
-    + [Object Recognition](#사물인식)
-    + [MetaMong](#메타몽)
+    + [Gallery](#1-갤러리)
+    + [PhoneBook](#2-연락처)
+    + [StopWatch](#3-스톱워치)
+    + [Object Recognition](#4-사물인식)
+    + [MetaMong](#5-메타몽)
 
 ## 프로젝트 개요
 
