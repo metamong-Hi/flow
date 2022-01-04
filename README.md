@@ -2,7 +2,7 @@
 
 ## 목차
 
-1. [Project Description](#Project-Description))
+1. [Project Description](#Project-Description)
     + [목표](#목표)
     + [목적](#목적)
     + [사용 언어, 툴](#사용-언어-툴)
