@@ -2,33 +2,38 @@
 
 ## 목차
 
-1. [Project Description](#Project-Description)
+1. [Project Description](#Project-Description))
+    + [목표](#목표)
+    + [목적](#목적)
+    + [사용 언어, 툴](#사용-언어,-툴)
+    + [결과물](#결과물)
+
+
+2. [implementation](#implementation)
     + [Gallery](#Gallery)
     + [PhoneBook](#StopWatch)
     + [StopWatch](#Gallery)
     + [Object Recognition](#Object-Recognition)
     + [MetaMong](#MetaMong)
 
-2. [implementation](#implementation)
-
 3. [Screenshots](#Screenshots)
 
 ## Project Description
 
-+ 목표
+### 목표
   + 탭 구조를 활용한 안드로이드 앱 제작
   
-+ 목적
+### 목적
   + 서로 함께 공통의 과제를 함으로써 개발에 빠르게 익숙해지기
   
-+ 사용 언어, 툴
+### 사용 언어, 툴
   + JAVA
   + Kotlin
   + android studio
   + tensorflow lite
   + ARCore
   
-+ 결과물
+### 결과물
   + 세개의 탭이 존재하는 안드로이드 앱
   + 탭1 : 나만의 이미지 갤러리 구축
   + 탭2 : 나의 연락처 구축, 휴대폰의 연락처 데이터 활용
