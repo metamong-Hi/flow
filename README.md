@@ -380,5 +380,8 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
 ### 4. 사물인식
 
+![original](https://user-images.githubusercontent.com/42797090/148052241-64f54bb6-e2ee-4116-b7b7-a72e8e64d114.gif)
 
 ### 5. 메타몽
+
+![메타몽](https://user-images.githubusercontent.com/42797090/148050451-0e851278-c0ae-4aa3-b72f-7da633e9f99b.gif)
