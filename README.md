@@ -3,11 +3,11 @@
 ## 목차
 
 1. [Project Description](#Project-Description)
-    + [Gallery](#1.-Gallery)
-    + [PhoneBook](#2.-StopWatch)
-    + [StopWatch](#3.-Gallery)
-    + [Object Recognition](#4.-Object-Recognition)
-    + [MetaMong](#5.-MetaMong)
+    + [Gallery](#Gallery)
+    + [PhoneBook](#StopWatch)
+    + [StopWatch](#Gallery)
+    + [Object Recognition](#Object-Recognition)
+    + [MetaMong](#MetaMong)
 
 2. [implementation](#implementation)
 
@@ -42,7 +42,7 @@
 
 ## implementation
 
-### 1. Gallery
+### Gallery
 
 + 앨범
   + 갤러리의 모든 리소스에 대한 uri(Uniform Resource Identifier : 일종으 자원 식별자)를 구해 앨범 그리드뷰 리스트에 추가
@@ -186,7 +186,7 @@
     frameLayoutShutter.startAnimation(animation)
     ```
 
-### 2. PhoneBook
+### PhoneBook
 
 + 검색
   + 검색창 변경 리스너
@@ -254,7 +254,7 @@
   });
   ```
 
-### 3. StopWatch
+### StopWatch
 
 + 타이머 핸들러
 
@@ -278,7 +278,7 @@ String getTimeOut(){
 }
 ```
 
-### 4. Object Recognition
+### Object Recognition
 
 + 영상분석 리스너
 
@@ -317,7 +317,7 @@ imageAnalysis.setAnalyzer(executor, ImageAnalysis.Analyzer { image ->
 
 카메라 프리뷰 부분은 위 코드와 동일
 
-### 5. MetaMong
+### MetaMong
 
 + 영상 인식 후 3D 오브젝트 배치 코드
 
