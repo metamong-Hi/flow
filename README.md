@@ -368,15 +368,17 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
 ### 1. 갤러리
 
+![사물인식](https://user-images.githubusercontent.com/42797090/148048994-4990a717-5859-4eef-853d-bbece363a500.gif)
 
 ### 2. 연락처
 
+![연락처](https://user-images.githubusercontent.com/42797090/148048616-fd7f4d82-fc78-4430-9cfc-18c8149db546.gif)
 
 ### 3. 스톱워치
 
+![스톱워치](https://user-images.githubusercontent.com/42797090/148048509-6554268a-972d-4f4f-b209-b5bb6bc0726f.gif)
 
 ### 4. 사물인식
 
 
 ### 5. 메타몽
-메타몽.gif
