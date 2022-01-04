@@ -17,6 +17,11 @@
     + [MetaMong](#MetaMong)
 
 3. [구현 결과](#구현-결과)
+    + [Gallery](#갤러리)
+    + [PhoneBook](#연락처)
+    + [StopWatch](#스톱워치)
+    + [Object Recognition](#사물인식)
+    + [MetaMong](#메타몽)
 
 ## 프로젝트 개요
 
@@ -363,23 +368,15 @@ public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
 ### 1. 갤러리
 
-+ 앨범
-+ 카메라
 
 ### 2. 연락처
 
-+ 검색
-+ 상세창
 
 ### 3. 스톱워치
 
-+ 시작 화면
-+ 기록중 화면
 
 ### 4. 사물인식
 
-+ ??? 인식
 
 ### 5. 메타몽
 
-+ 사진
